@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <title>시간표</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <style>
+        body {
+            text-align: center;
+        }
+        table {
+            display: inline-block;
+            border-collapse: collapse;
+            margin-left: auto;
+            margin-right: auto;
+        }
+        td {
+            padding: 25px;
+        }
+        .성인 {
+            background-color: aqua;
+        }
+        .한국 {
+            background-color: bisque;
+        }
+        .시분설 {
+            background-color: coral;
+        }
+        .인프 {
+            background-color: coral;
+        }
+        .캡디 {
+            background-color: darkgray;
+        }
+        .씨샵 {
+            background-color: pink;
+        }
+        .수업 {
+            font-size: 15px;
+        }
+    </style>
+</head>
+
+<body>
+    <table border=1>
+        <thead>
+            <th width="80"></th>
+            <th width="120">　월　</th>
+            <th width="120">　화　</th>
+            <th width="120">　수　</th>
+            <th width="120">　목　</th>
+            <th width="120">　금　</th>
+        </thead>
+        <tbody>
+            <tr>
+                <td>1교시</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>2교시</td>
+                <td></td>
+                <td></td>
+                <td rowspan="3" class="수업 성인">성인학습</br>및</br>상담</td>
+                <td rowspan="2" class="수업 인프">인터넷<br/> 프로그래밍</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>3교시</td>
+                <td></td>
+                <td></td>
+                <td rowspan="2" class="캡디">캡스톤</td>
+            </tr>
+            <tr>
+                <td>4교시</td>
+                <td></td>
+              <td rowspan="3" class="한국">한국음악의</br>이해</td>
+                <td class="캡디">캡스톤</td>
+            </tr>
+            <tr>
+                <td>5교시</td>
+                <td></td>
+                <td></td>
+                <td rowspan="2" class="씨샵">C#<br/>프로그래밍</td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>6교시</td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>7교시</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>8교시</td>
+                <td></td>
+                <td></td>
+                <td rowspan="2" class="인프">인터넷<br/>프로그래밍</td>
+                <td></td>
+                <td></td>
+            </tr>
+            <tr>
+                <td>9교시</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                 <td rowspan="3" class="씨샵">C#<br/>프로그래밍</td>
+            </tr>
+        </tbody>
+</body>
+</html>
