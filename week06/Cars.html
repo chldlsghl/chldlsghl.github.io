@@ -2,89 +2,183 @@
 <html lang="en">
 
 <head>
-  <meta charset="UTF-8">
-  <mata name="viewport" content="width=device-width, initial-scale=1" />
-  <title>CARS</title>
-  <style>
-    .car {
-      font-weight: bold;
-      font-size: 30px;
-    }
-    select {
-      width: 200px;
-    }
-  </style>
-</head>
-<form action="https://jsptogo.herokuapp.com/jspsrc/Cars.jsp" method="post">
-  <fieldset>
-    <body>
-      <div class="car">CARS</div>
-      <br />
-      <div class="row">
-        <div class="top-menu con">
-          <div class="menu-1">
-            <div class="menu-box"><select aria-label="Select a stock type" name="stockType">
-                        <option selected="" value="0">New & Used</option>
-                        <option value="">New</option>
-                        <option value="">Used</option>
-                    </select></div>
-          </div>
-          <div class="menu-2">
-            <div class="menu-box"><select aria-label="Select a make" name="makeId">
-                        <option selected="" value="0">Makes</option>
-                        <option value="">Audi</option>
-                        <option value="">Benz</option>
-                        <option value="">BMW</option>
-                        <option value="">Hundai</option>
-                        <option value="">Jeep</option>
-                        <option value="">KIA</option>
-                        <option value="">Land-Rover</option>
-                        <option value="">RenaultSamsung</option>
-                    </select></div>
-          </div>
-          <div class="menu-3">
-            <div class="menu-box"><select aria-label="Select a model" name="modelId">
-                        <option selected="" value="0">Type</option>
-                        <option value="">Semi-solid</option>
-                        <option value="">Medium</option>
-                        <option value="">SUV</option>
-                    </select></div>
-            <div class="menu-3">
-              <div class="menu-box"><select aria-label="Select a model" name="modelId">
-                            <option selected="" value="0">Models</option>
-                            <option value="">2018 Audi R8 V10</option>
-                            <option value="">2018 Adui A8L</option>
-                            <option value="">2018 Benz S클래스 63 AMG</option>
-                            <option value="">2018 Benz S클래스 L</option>
-                            <option value="">2019 BMW X5</option>
-                            <option value="">2019 BMW i8</option>
-                            <option value="">2019 팰리세이드</option>
-                            <option value="">2019 그랜저</option>
-                            <option value="">2019 지프 레니게이드</option>
-                            <option value="">2019 지프 그랜드 체로키</option>
-                            <option value="">2019 스팅어</option>
-                            <option value="">2020 K5</option>
-                            <option value="">2020 랜드로버 레인지로버 스포츠</option>
-                            <option value="">2019 랜드로버 디스커버리</option>
-                            <option value="">2019 SM7</option>
-                            <option value="">2019 SM6</option>
-                        </select></div>
-            </div>
-            <div class="menu-4">
-              <div class="menu-box"><select aria-label="Select a maximum distance" name="radius">
-                            <option selected="" value="0">Price</option>
-                            <option value="">1,000만원~</option>
-                            <option value="">~3,000만원</option>
-                            <option value="">~5,000만원</option>
-                            <option value="">~7,000만원</option>
-                            <option value="">~9,000만원</option>
-                        </select></div>
-            </div>
-            <br/>
-            <div class="search-1"><input type="submit" value="조회">
-            </div>
-          </div>
+    <meta charset="UTF-8">
+    <mata name="viewport" content="width=device-width, initial-scale=1" />
+    <title>CARS</title>
+    <script>
+        var Car;
+
+        function team(obj) {
+            var mame_a = [""];
+            var name_b = ["R8 V10", "A8L", "TT로드스터", "SQ5", "A6"];
+            var name_c = ["S클래스 63 AMG", "S클래스 L", "C클래스 쿠페", "E클래스 카브리올레", "SLC클래스"];
+            var name_d = ["X5", "i8", "X7", "Z4", "M3"];
+            var name_e = ["팰리세이드", "그랜저", "쏘나타", "아반떼", "싼타페"];
+            var name_f = ["레니게이드", "그랜드 체로키", "컴패스", "랭글러", "치프"];
+            var name_g = ["스팅어", "K3", "K5", "K7", "K9"];
+            var name_h = ["레인지로버 스포츠", "레인지로버 벨라", "레인지로버 이보크", "레인지로버 LWB", "디스커버리"];
+            var name_i = ["SM5", "SM6", "SM7", "QM5", "QM6"];
+            var name_j = ["아테온", "파사트", "티록R", "투아렉", "아틀라스"];
+            var name_k = ["UX", "NX", "LC", "LX", "RX"];
+            var name_l = ["익스플로러", "이스케이프", "엑티브", "몬데오", "익스페디션"];
+            var name_m = ["XT6", "XT5", "CT6", "CT5", "에스컬레이드"];
+            var name_n = ["카이엔", "박스터", "카레라", "파나메라", "마칸"];
+            var name_o = ["V60", "XC90", "XC40", "S60", "S90"];
+            var name_p = ["XF", "XE", "XJR", "SVR", "XFL"];
+            var name_q = ["컨티넬탈 GT", "벤테이가", "플라잉스퍼", "플라잉스퍼 벨루가", "뮬산"];
+            var target = document.getElementById("namex");
+            if (obj.value == "a") {
+                var k = name_a;
+                Car = "Makes";
+            } else if (obj.value == "b") {
+                var k = name_b;
+                Car = "Audi";
+            } else if (obj.value == "c") {
+                var k = name_c;
+                Car = "Benz";
+            } else if (obj.value == "d") {
+                var k = name_d;
+                Car = "BMW";
+            } else if (obj.value == "e") {
+                var k = name_e;
+                Car = "현대";
+            } else if (obj.value == "f") {
+                var k = name_f;
+                Car = "Jeep";
+            } else if (obj.value == "g") {
+                var k = name_g;
+                Car = "기아";
+            } else if (obj.value == "h") {
+                var k = name_h;
+                Car = "Land-Rover";
+            } else if (obj.value == "i") {
+                var k = name_i;
+                Car = "RenaultSamsung";
+            } else if (obj.value == "j") {
+                var k = name_j;
+                Car = "Volkswagen";
+            } else if (obj.value == "k") {
+                var k = name_k;
+                Car = "Lexus";
+            } else if (obj.value == "l") {
+                var k = name_l;
+                Car = "Ford";
+            } else if (obj.value == "m") {
+                var k = name_m;
+                Car = "Cadillac";
+            } else if (obj.value == "n") {
+                var k = name_n;
+                Car = "Porsche";
+            } else if (obj.value == "o") {
+                var k = name_o;
+                Car = "Volvo";
+            } else if (obj.value == "p") {
+                var k = name_p;
+                Car = "Jaguar";
+            } else if (obj.value == "q") {
+                var k = name_q;
+                Car = "Bentley";
+            }
+            target.options.length = 0;
+            for (x in k) {
+                var opt = document.createElement("option");
+                opt.value = k[x];
+                opt.innerHTML = k[x];
+                target.appendChild(opt);
+            }
+            document.getElementById("getd").innerHTML = "";
+        }
+
+        function gett(ftm) {
+            document.getElementById("getd").innerHTML = Car + "  " + ftm.value + " ";
+        }
+
+    </script>
+    <style>
+        .menu-box-1 {
+            background-color: #dfdfdf;
+            width: 300px;
+            height: 50px;
+            border-radius: 10px;
+            text-align: center;
+            margin: 30px;
+            padding: 10px;
+            box-shadow: 5px 5px 5px 2px gray;
+            font-weight: bold;
+        }
+
+        .menu-box-2 {
+            background-color: #dfdfdf;
+            width: 300px;
+            height: 100px;
+            border-radius: 10px;
+            margin-left: -10px;
+            text-align: center;
+            padding: 10px;
+            box-shadow: 5px 5px 5px 2px gray;
+            font-weight: bold;
+        }
+
+        #teamx {
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        #namex {
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        .menu-box-1:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 5px 2px gray;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+        .menu-box-2:hover {
+            transform: translateY(-5px);
+            box-shadow: 8px 8px 5px 2px gray;
+            transition: transform 0.5s, box-shadow 0.5s;
+        }
+
+    </style>
+
+<body>
+    <div class="menu-box-1">
+
+        <legend>Cars</legend>
+        <label for="teamx"></label>
+
+        <select id="teamx" name="baseballteam" onchange="team(this)">
+
+            <option value="a" selected>Makes</option>
+            <option value="b">Audi</option>
+            <option value="c">Benz</option>
+            <option value="d">BMW</option>
+            <option value="e">현대</option>
+            <option value="f">Jeep</option>
+            <option value="g">기아</option>
+            <option value="h">Land-Rover</option>
+            <option value="i">RenaultSamsung</option>
+            <option value="j">Volkswagen</option>
+            <option value="k">Lexus</option>
+            <option value="l">Ford</option>
+            <option value="m">Cadillac</option>
+            <option value="n">Porsche</option>
+            <option value="o">Volvo</option>
+            <option value="p">Jaguar</option>
+            <option value="q">Bentley</option>
+        </select>
+        <label for="name"></label>
+
+        <select id="namex" name="name" onchange="gett(this)"></select>
+        <br /><br /><br /><br />
+        <div class="menu-box-2">
+            <legend>Selected</legend>
+
+            <p id="getd"></p>
+
         </div>
-      </div>
-    </body>
+</body>
+
 </html>
